@@ -22,36 +22,47 @@ Log file names will be: <folder or file name>_<unix time>
 PCRE patterns detected:
 --------
 gzinflate longer than 250 characters
+
 'gzinflate\(.{0,15}[a-zA-Z0-9/+=]{250}'
 
 Unicode longer than 250 characters
+
 '([0-9]{1,3},){250}'
 
 base64_decode longer than 250 characters
+
 q%(base64_decode|\\\\x62\\\\x61\\\\x73\\\\x65\\\\x36\\\\x34\\\\x5F\\\\x64\\\\x65\\\\x63\\\\x6F\\\\x64\\\\x65)(\(|\\\\x28).{0,15}[a-zA-Z0-9/+=]{250}%
 
 Yandex checker
+
 'HTTP_USER_AGENT.{0,30}Yandex';
 
 Defaced Page
+
 '<\s{0,10}[Tt][iI][tT][lL][eE]\s{0,10}>.{0,50}[hH][aA][cC][kK][eE][dD]\s{0,}[bB][yY]'
 
 UDP Flood
+
 'fsockopen\(.udp'
 
 Phishing Page
+
 '[Tt][iI][tT][lL][eE]>.{0,50}([Bb]ank|Twitter|Facebook).{0,40}([lL]og\s?[Ii]n|[pP]assword).{0,90}</[Tt][iI][tT][lL][eE]'
 
 Mass Mailer
+
 'mail\(\$email\[\$i\].{1,600}i\+\+'
 
 Possible VB Shell
+
 'objFSObject\.CreateTextFile'
 
-Hex Obfuscation longer than250 characters
+Hex Obfuscation longer than 250 characters
+
 '([a-zA-Z0-9]{1,2}[,:]){250}'
 
 Escape Encoded RegEx
+
 '(%[0-9a-zA-Z]{2}){80,}'
 
 Compatability:
