@@ -19,7 +19,7 @@ my $logDir = '/var/log/clamlog';
 
 Log file names will be: <folder or file name>_<unix time>
 
-Regex patterns detected:
+PCRE patterns detected:
 --------
 gzinflate longer than 250 characters
 'gzinflate\(.{0,15}[a-zA-Z0-9/+=]{250}'
