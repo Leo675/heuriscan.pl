@@ -15,32 +15,44 @@ Configuration:
 --------
 Change line 6 to a directory where you want the log files stored:
 
-my $logdir = '/home';
+my $logDir = '/var/log/clamlog';
 
-Log file names will be = basename($webdir) . "_" . time;
-
+Log file names will be: <folder or file name>_<unix time>
 
 Regex patterns detected:
 --------
+gzinflate longer than 250 characters
 'gzinflate\(.{0,15}[a-zA-Z0-9/+=]{250}'
 
+Unicode longer than 250 characters
 '([0-9]{1,3},){250}'
 
-'base64_decode\(.{0,15}[a-zA-Z0-9/+=]{250}'
+base64_decode longer than 250 characters
+q%(base64_decode|\\\\x62\\\\x61\\\\x73\\\\x65\\\\x36\\\\x34\\\\x5F\\\\x64\\\\x65\\\\x63\\\\x6F\\\\x64\\\\x65)(\(|\\\\x28).{0,15}[a-zA-Z0-9/+=]{250}%
 
-'HTTP_USER_AGENT.*Yandex'
+Yandex checker
+'HTTP_USER_AGENT.{0,30}Yandex';
 
-'[Tt][iI][tT][lL][eE]>.{0,50}[hH][aA][cC][kK][eE][dD] [bB][yY]'
+Defaced Page
+'<\s{0,10}[Tt][iI][tT][lL][eE]\s{0,10}>.{0,50}[hH][aA][cC][kK][eE][dD]\s{0,}[bB][yY]'
 
+UDP Flood
 'fsockopen\(.udp'
 
-'[Tt][iI][tT][lL][eE]>.{0,50}[Bb]ank.{0,40}([lL]ogin|[pP]assword).{0,90}</[Tt][iI][tT][lL][eE]'
+Phishing Page
+'[Tt][iI][tT][lL][eE]>.{0,50}([Bb]ank|Twitter|Facebook).{0,40}([lL]og\s?[Ii]n|[pP]assword).{0,90}</[Tt][iI][tT][lL][eE]'
 
+Mass Mailer
 'mail\(\$email\[\$i\].{1,600}i\+\+'
 
+Possible VB Shell
 'objFSObject\.CreateTextFile'
 
-I will be updating these patterns soon as I have some better ones, but they need to be tested first.
+Hex Obfuscation longer than250 characters
+'([a-zA-Z0-9]{1,2}[,:]){250}'
+
+Escape Encoded RegEx
+'(%[0-9a-zA-Z]{2}){80,}'
 
 Compatability:
 --------
