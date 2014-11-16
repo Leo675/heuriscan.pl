@@ -17,7 +17,7 @@ Change line 6 to a directory where you want the log files stored:
 
 my $logDir = '/var/log/clamlog';
 
-Log file names will be: <folder or file name>_<unix time>
+Log file names will be: \<folder or file name\>_\<unix time\>
 
 PCRE patterns detected:
 --------
