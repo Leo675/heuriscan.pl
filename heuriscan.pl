@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
-#Author: Mathew Long & Joshua Willie
+#Original authors: Mathew Long & Joshua Willie
+#Continued development: Mathew Long
 use warnings;
 use strict;
 
